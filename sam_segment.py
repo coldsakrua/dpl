@@ -6,10 +6,11 @@ from matplotlib import pyplot as plt
 from typing import Any, Dict, List
 import torch
 
-from segment_anything import SamPredictor, sam_model_registry
+from segment_anything import sam_model_registry
 from utils import load_img_to_array, save_array_to_img, dilate_mask, \
     show_mask, show_points
 
+from segment_anything import SamPredictor
 
 def predict_masks_with_sam(
         img: np.ndarray,

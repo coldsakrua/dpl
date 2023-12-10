@@ -1,4 +1,5 @@
 import cv2
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 from typing import Any, Dict, List
@@ -55,6 +56,34 @@ def show_points(ax, coords: List[List[float]], labels: List[int], size=375):
         ax.scatter(points[:, 0], points[:, 1], color=color, marker='*',
                    s=size, edgecolor='white', linewidth=1.25)
 
+
+# def get_clicked_point(img_path):
+#     img = plt.imread(img_path)
+
+#     fig, ax = plt.subplots()
+#     ax.imshow(img)
+#     # plt.ion()
+#     plt.axis('off')
+#     plt.show()
+#     last_point = []
+#     keep_looping = True
+
+#     def onclick(event):
+#         nonlocal last_point, keep_looping
+
+#         if event.button == 1:  # 左键点击
+#             if last_point:
+#                 plt.scatter(last_point[0], last_point[1], color='black')
+#             last_point = [event.xdata, event.ydata]
+#             plt.scatter(last_point[0], last_point[1], color='red')
+#             plt.draw()
+#         elif event.button == 3:  # 右键点击
+#             keep_looping = False
+
+#     cid = fig.canvas.mpl_connect('button_press_event', onclick)
+#     plt.show()
+
+#     return last_point
 def get_clicked_point(img_path):
     img = cv2.imread(img_path)
     cv2.namedWindow("image")
